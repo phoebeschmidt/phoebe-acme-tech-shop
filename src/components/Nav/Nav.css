@@ -1,0 +1,18 @@
+.Nav-header {
+  background-color: #222;
+  height: 200px;
+  padding: 20px;
+  color: white;
+}
+
+.Nav {
+  text-align: right;
+}
+
+.CatalogLink {
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
