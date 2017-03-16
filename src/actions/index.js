@@ -13,20 +13,15 @@ export function addItemToCart(cart, newItemSku) {
 
 export function removeItemFromCart(cart, removeMeSku) {
   let newItemsList = [];
-  console.log(cart);
   cart.lines.forEach((item) => {
-    console.log('remove', removeMeSku);
-    console.log('current', item.sku);
     if (item.sku !== removeMeSku) {
       newItemsList.push(item);
     }
   });
-  console.log(newItemsList)
   return updateCartApi({lines: newItemsList});
 }
 
 function updateCartApi(newCart) {
-  console.log('updating cart with', newCart);
   const url = config.BASE_URL + "/cart";
   const init = {
     method: 'PUT',
@@ -43,9 +38,24 @@ function updateCartApi(newCart) {
           dispatch(receiveNewCart(jsonResponse));
       })
       .catch((error) => {
-        console.log(error)
-        alert("Unfortunately, this couldnt be added to your cart at this time. Sorry about that!")
+        if (error.status == 500) {
+          alert("Unfortunately, this couldnt be added to your cart at this time. Sorry about that!")
+        } else if (error.status == 400) {
+          error.json().then((body) => evaluate400Error(body, newCart))
+        }
       });
+  }
+}
+
+//FIXME: finish this error handling
+function evaluate400Error(body, newCart) {
+  const re = /obj./;
+  for (let prop in body) {
+    if (body[prop][0].msg == "error.sku.unknown") {
+      //remove this item from list and notify
+      // const sku = prop.replace(re, 'newCart.');
+      // removeItemFromCart()
+    }
   }
 }
 

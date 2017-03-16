@@ -11,7 +11,8 @@ function json(response) {
 
 function errorHandler(response) {
   if (!response.ok) {
-    throw Error(response.statusText);
+    console.log(response.status)
+    return Promise.reject(response);
   }
   return Promise.resolve(response);
 }

@@ -3,6 +3,8 @@ import { getCurrencyWithAmount } from '../../utils/getCurrency';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../../utils/reduxHelper';
+import './Article.css';
+
 class Article extends Component {
 
   render() {
@@ -11,10 +13,11 @@ class Article extends Component {
     return (
       <div className="Article">
         <Link to={link}>{this.props.data.name}</Link><br></br>
-        <img src={this.props.data.image} alt={this.props.data.name}></img><br></br>
+        <div className="imageContainer"><img src={this.props.data.image} alt={this.props.data.name}></img></div><br></br>
         {htmlAmt}<br></br>
       <button onClick={() => this.props.actions.addItemToCart(this.props.cart, this.props.data.sku)}>Add to cart</button>
-      </div>
+      <br></br><br></br>
+    </div>
     );
   }
 }

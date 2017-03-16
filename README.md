@@ -7,10 +7,10 @@ We strongly recommend to use Node >= 6 and npm >= 3 for faster installation spee
 1. `npm install`
 1. supply the base URL for the API as an environment variable named `REACT_APP_BASE_URL` when starting the app
 
-..*To start in dev mode: `REACT_APP_BASE_URL=<base url goes here> npm start`
+-To start in dev mode: `REACT_APP_BASE_URL=<base url goes here> npm start`
 The app should appear in your browser at `http://localhost:3000/` in development mode.
 
-..*To build 'production mode': `npm run build`
+-To build 'production mode': `npm run build`
 
 then: `npm install -g serve` and `serve -s build`
 The console should provide some output telling you where the app is running.
@@ -28,8 +28,8 @@ The console should provide some output telling you where the app is running.
 
 1. change quantity isn't yet implemented
 1. figure out testing components with redux; there isn't much other interesting logic to test besides component
-1. numerous styling improvements can be made :)
-1. error handling: when discount/special items are added to the cart, on subsequent calls the backend doesn't know their SKU. this stops any more actions being taken on this cart (remove, add, etc)
+1. numerous styling improvements
+1. error handling: when discount/special items are added to the cart, on subsequent calls the backend doesn't know their SKU. this stops any more actions being taken on this cart (remove, add, etc). Related: you can't remove these items because they are automatically added back when saving the cart
 1. I currently only use redux to store the state of the shopping cart. I make calls to the API for every ArticleDetails component and every time the catalog component is rendered; this, clearly, could be improved.
 1. Error handling. with more time with redux, perhaps I could implement a "global error" reducer or some other solution
 1. "Not Found" page flashes before article detail page loads
@@ -40,17 +40,17 @@ The console should provide some output telling you where the app is running.
 
 Given the specs for this assignment and my time constraints, I decided to prioritize features according to the below list:
 
-*Feature completion. (Including figuring out react-router and react-redux, both new for me)
+-Feature completion. (Including figuring out react-router and react-redux, both new for me)
 
-*error handling/good output to user
+-error handling/good output to user
 
-*documentation
+-documentation
 
-*testing
+-testing
 
-*responsiveness
+-responsiveness
 
-*making things pretty (bootstrap + css)
+-making things pretty (bootstrap + css)
 
 
 
